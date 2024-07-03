@@ -16,20 +16,17 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// app.use(cors({ origin: 'http://127.0.0.1:5500' }));
-app.use(cors({ origin: 'https://biblioteca-backend-y7iu.vercel.app' }));
-
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
+app.use(cors({ origin: 'https://is2095.github.io/frontend_biblioteca_back' }));
 app.disable('x-powered-by');
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use((_req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://biblioteca-backend-y7iu.vercel.app');
-    res.header('Access-Control-Allow-Origin', '');
+    res.header('Access-Control-Allow-Origin', 'https://is2095.github.io/frontend_biblioteca_back');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header(
         'Access-Control-Allow-Headers',
@@ -44,6 +41,7 @@ app.use((_req, res, next) => {
 });
 
 app.use((_req, _res, next) => {
+    console.log('entramos por acá inicialización de base de datos');
     inicializacionBD()
     next()
 });

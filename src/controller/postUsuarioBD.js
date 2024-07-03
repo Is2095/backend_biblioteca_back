@@ -62,7 +62,7 @@ const GuardarUsuarioBD = (req, res) => {
             res.status(404).json({ err: 'error al buscar la información del usuario' });
         } else {
             if (result.length === 0) {
-                db.query('INSERT IGNORE INTO usuarios (nombre, apellido, edad, email, fechaActual, provincia) VALUES (?, ?, ?, ?, ?, ?);', [nombre, apellido, edadNumber, email, dateActual, provincia], (err, result) => {
+                db.query('INSERT IGNORE INTO usuarios (nombre, apellido, edad, email, password, fechaActual, provincia) VALUES (?, ?, ?, ?, ?, ?, ?);', [nombre, apellido, edadNumber, email, password, dateActual, provincia], (err, result) => {
                     if (err) {
                         desconeccionBD(db);
                         res.status(404).json({ err: 'error al guardar los datos del usuario' });
@@ -71,7 +71,8 @@ const GuardarUsuarioBD = (req, res) => {
                         console.log('base de datos desconectada');
                         const idUsuario = result.insertId;
                         desconeccionBD(db);
-                        res.redirect('http://localhost:3001/login/index.html');
+                        res.status(200).json({message: 'usuario registrado'})
+                        // res.redirect('http://localhost:3001/login/index.html');
                     }
                 });
             } else {

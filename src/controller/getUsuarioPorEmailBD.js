@@ -4,7 +4,7 @@ import { coneccionBD, desconeccionBD } from "../data/index.js";
 const BuscarUsuarioPorEmailBD = (req, res) => {
 
     const { email } = req.body;
-
+console.log(email);
     const db = coneccionBD();
 
     db.query('SELECT * FROM usuarios WHERE usuarios.email = ?', [email], (err, result) => {
