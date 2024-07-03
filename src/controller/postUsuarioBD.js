@@ -72,7 +72,6 @@ const GuardarUsuarioBD = (req, res) => {
                         const idUsuario = result.insertId;
                         desconeccionBD(db);
                         res.status(200).json({message: 'usuario registrado'})
-                        // res.redirect('http://localhost:3001/login/index.html');
                     }
                 });
             } else {
