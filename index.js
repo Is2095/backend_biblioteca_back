@@ -21,12 +21,12 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
-app.use(cors({ origin: 'https://is2095.github.io/frontend_biblioteca_back' }));
+app.use(cors({ origin: 'https://is2095.github.io' }));
 app.disable('x-powered-by');
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use((_req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://is2095.github.io/frontend_biblioteca_back');
+    res.header('Access-Control-Allow-Origin', 'https://is2095.github.io');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header(
         'Access-Control-Allow-Headers',
