@@ -1,0 +1,40 @@
+# Archivos y directorios generados por el sistema
+.DS_Store
+Thumbs.db
+
+# Directorio de node_modules
+node_modules/
+
+# Archivos de configuración local
+.env
+
+# Archivos de configuración de entorno
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Archivos de configuración de herramientas
+.vscode/
+.idea/
+
+# Archivos de compilación y distribución
+/dist
+/build
+
+# Archivos temporales
+*.tmp
+*.swp
+*.swo
+
+# Archivos de depuración
+*.log
+
+# Archivos de configuración de herramientas de desarrollo
+/.idea/
+/*.iml
+/*.iws
+/*.ipr
+/*.iws
+
+package-lock.json
